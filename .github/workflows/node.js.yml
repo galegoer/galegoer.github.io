@@ -26,7 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         
-    - name: npm ci, build and test
+    - name: npm ci, build
       run: |
         cd my-website
         echo Hello, world!
@@ -35,8 +35,15 @@ jobs:
         echo REACT_APP_PARSE_SERVER_URL=${{ secrets.REACT_APP_PARSE_SERVER_URL }} >> .env
         npm ci
         npm run build --if-present
-        npm test
     - name: Deploy
       run: |
         cd my-website
+        git config --global user.name $user_name
+        git config --global user.email $user_email
+        git remote set-url origin https://${github_token}@github.com/${repository}
         npm run deploy
+      env:
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+        repository: ${{ github.repository }}
