@@ -1,21 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
 import RandomVideo from './components/RandomVideo';
+
+import { initializeParse } from '@parse/react';
+
+const parse_server_url = process.env.REACT_APP_PARSE_SERVER_URL;
+const parse_app_id = process.env.REACT_APP_PARSE_APP_ID;
+const parse_app_js_key = process.env.REACT_APP_PARSE_JS_KEY;
+
+initializeParse(
+  parse_server_url,
+  parse_app_id,
+  parse_app_js_key
+);
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        Random Video for Today
         <RandomVideo />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
