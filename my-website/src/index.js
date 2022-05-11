@@ -4,6 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { initializeParse } from '@parse/react';
+
+const parse_server_url = process.env.REACT_APP_PARSE_SERVER_URL;
+const parse_app_id = process.env.REACT_APP_PARSE_APP_ID;
+const parse_app_js_key = process.env.REACT_APP_PARSE_JS_KEY;
+const test_var = process.env.REACT_APP_TEST_VAR;
+
+initializeParse(
+  parse_server_url,
+  parse_app_id,
+  parse_app_js_key
+);
+
+
+console.log("test var: ", test_var);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
