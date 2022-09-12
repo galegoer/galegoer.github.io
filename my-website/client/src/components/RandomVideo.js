@@ -47,6 +47,7 @@ function RandomVideo(props) {
       <div>
         <div className="video-responsive" style={videostyle} >
           {vidIds}
+          
           <br />
           <iframe
             style={iframestyle}
@@ -76,6 +77,10 @@ function RandomVideo(props) {
             />
           </div>
         ))}
+
+        Coded with Back4App, running a JS cloud job daily to store and update the latest random reccomendations.
+        Random videos are randomly selected from a YouTube playlist.
+
       </div>
     );
 }

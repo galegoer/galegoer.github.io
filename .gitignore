@@ -1,0 +1,3 @@
+my-website/.env
+my-website/client/node_modules/
+my-website/server/node_modules/
