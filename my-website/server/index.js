@@ -1,19 +1,40 @@
 const express = require('express');
-const path = require('path');
-const http = require('http');
-const PORT = process.env.PORT || 3000
-const socketio = require('socket.io');
 const app = express();
+const http = require('http');
+const { Server } = require('socket.io');
+const cors = require('cors');
+
+app.use(cors());
+
 const server = http.createServer(app);
-const io = socketio(server);
 
-// Set static folder
-app.use(express.static(path.join(__dirname, "public")));
+const io = new Server(server, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
+    },
+});
 
-// Start server
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+io.on("connection", (socket) => {
+    console.log(`USER CONNECTED: ${socket.id}`);
 
-// Handle a socket connection request from web client
-io.on('connection', socket => {
-    console.log('New WS connection');
-})
+    socket.on('join_room', (data) => {
+        socket.join(data);
+        console.log(io.sockets.adapter.rooms);
+        console.log(io.of("/").adapter.rooms);
+    });
+
+    socket.on('send_message', (data) => {
+        console.log(data);
+        socket.to(data.room).emit('receive_message', data);
+    });
+
+    socket.on('disconnect', () => {
+        console.log('User Disconnected', socket.id);
+        console.log(io.sockets.adapter.rooms);
+    })
+});
+
+server.listen(3001, () => {
+    console.log('SERVER RUNNING');
+});
