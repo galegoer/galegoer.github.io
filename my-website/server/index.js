@@ -2,9 +2,10 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const { Server } = require('socket.io');
-// const cors = require('cors');
+const cors = require('cors');
 
 app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(cors);
 // cors());
 
 const server = http.createServer(app);
