@@ -26,12 +26,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         
+    - name: npm ci, start server
+      run: |
+        cd my-website/server
+        npm ci
+        node index.js
     - name: npm ci, build, deploy
       run: |
-        cd my-website
-        cd server
-        npm ci
-        cd ../client
+        cd my-website/client
         echo REACT_APP_PARSE_APP_ID="${{ secrets.REACT_APP_PARSE_APP_ID }}" >> .env
         echo REACT_APP_PARSE_JS_KEY="${{ secrets.REACT_APP_PARSE_JS_KEY }}" >> .env
         echo REACT_APP_PARSE_SERVER_URL="${{ secrets.REACT_APP_PARSE_SERVER_URL }}" >> .env
