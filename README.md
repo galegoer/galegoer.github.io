@@ -1,2 +1,2 @@
 # my-website
-Portfolio website made with React, rest TBD
+Portfolio website made with Vue.

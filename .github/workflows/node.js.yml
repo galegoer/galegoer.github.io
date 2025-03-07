@@ -28,11 +28,7 @@ jobs:
         
     - name: npm ci, build, deploy
       run: |
-        cd my-website
-        echo REACT_APP_PARSE_APP_ID="${{ secrets.REACT_APP_PARSE_APP_ID }}" >> .env
-        echo REACT_APP_PARSE_JS_KEY="${{ secrets.REACT_APP_PARSE_JS_KEY }}" >> .env
-        echo REACT_APP_PARSE_SERVER_URL="${{ secrets.REACT_APP_PARSE_SERVER_URL }}" >> .env
-        echo REACT_APP_TEST_VAR="${{ secrets.REACT_APP_TEST_VAR }}" >> .env
+        cd galegoer-github-io
         npm ci
         npm run build
         git config --global user.name $user_name
