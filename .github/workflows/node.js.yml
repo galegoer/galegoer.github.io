@@ -29,6 +29,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./galegoer-github-io/
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -37,6 +40,7 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+          cache-dependency-path: './galegoer-github-io/package-lock.json'
       - name: Install dependencies
         run: |
           cd galegoer-github-io
