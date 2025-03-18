@@ -40,7 +40,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd galegoer-github-io
-          npm install
+          npm ci
           npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
