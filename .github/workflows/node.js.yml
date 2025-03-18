@@ -27,8 +27,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         
     - name: npm ci, build, deploy
+      working-directory: ./galegoer-github-io
       run: |
-        cd galegoer-github-io
         npm ci
         npm run build
       env:
@@ -38,9 +38,11 @@ jobs:
         repository: ${{ github.repository }}
 
     - name: Upload Pages Artifact
+      working-directory: ./galegoer-github-io
       uses: actions/upload-pages-artifact@v3
       with:
         path: dist
 
     - name: Deploy Pages
+      working-directory: ./galegoer-github-io
       uses: actions/deploy-pages@v4
