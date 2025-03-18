@@ -43,7 +43,6 @@ jobs:
           cache-dependency-path: './galegoer-github-io/package-lock.json'
       - name: Install dependencies
         run: |
-          cd galegoer-github-io
           npm ci
           npm run build
       - name: Setup Pages
@@ -51,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./galegoer-github-io/dist
+          path: ./dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
