@@ -8,9 +8,12 @@ defineProps<{
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <h3>
-      You’ve successfully created a project with
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
+      Here I'll share a little bit about myself and what I've been working on. I'm a software developer from Canada that loves to automate things I do in my day to day life. As you may have seen from my Github
+      there are many projects that I've done to simplify the processes of some daily tasks. I'm currently learning Vue and working on a few different projects. You will see these under the WIP section in the Projects tab.
+      I've also been inspired to write some blog posts, so you'll see some soon!
+      Feel free to reach out through the Contact page!
+      <br/>
+      Thanks for stopping by!
     </h3>
   </div>
 </template>
