@@ -38,5 +38,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # Deploy to this branch
-          folder: dist  # Adjust if your build output folder is different
+          folder: galegoer-github-io/dist  # Adjust if your build output folder is different
           clean: true
