@@ -17,9 +17,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Change Directory
-        run: cd galegoer-github-io
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -28,10 +25,14 @@ jobs:
           cache-dependency-path: galegoer-github-io/package-lock.json
 
       - name: Install Dependencies
-        run: npm ci
+        run: |
+          cd galegoer-github-io
+          npm ci
 
       - name: Build Project
-        run: npm run build
+        run: |
+          cd galegoer-github-io
+          npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
