@@ -1,0 +1,1 @@
+import{_ as s,c as o,a as t,o as c}from"./index-BNaWFoKY.js";const r={},a={class:"projects"};function n(_,e){return c(),o("div",a,e[0]||(e[0]=[t("h1",null,"This is a projects page",-1)]))}const l=s(r,[["render",n]]);export{l as default};

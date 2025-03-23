@@ -1,0 +1,1 @@
+import{_ as o,c as s,a as t,o as a}from"./index-BNaWFoKY.js";const c={},n={class:"blog"};function r(l,e){return a(),s("div",n,e[0]||(e[0]=[t("h1",null,"This is a blog page",-1)]))}const i=o(c,[["render",r]]);export{i as default};

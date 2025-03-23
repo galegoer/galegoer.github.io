@@ -1,0 +1,1 @@
+import{_ as e,c,a as o,o as s}from"./index-BNaWFoKY.js";const a={},n={class:"contact"};function r(_,t){return s(),c("div",n,t[0]||(t[0]=[o("h1",null,"This is a contact page",-1)]))}const l=e(a,[["render",r]]);export{l as default};
